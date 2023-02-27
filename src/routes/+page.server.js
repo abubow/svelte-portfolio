@@ -1,25 +1,15 @@
-import { client } from '$lib/graphQl'
-import { gql} from 'graphql-request';
+import { client } from '$lib/graphQl';
+import { gql } from 'graphql-request';
+import { authorsQuery, projectsQuery } from '$lib/graphQlQueries'
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-	const query = gql`
-      query GetProjects {
-        projects {
-          name
-          slug
-          description
-          demo
-          sourceCode
-          image {
-            url
-          }
-        }
-      }
-    `
-
-    const { projects } = await client.request(query)
+	const [authors, projects] = await Promise.all([
+		client.request(authorsQuery),
+		client.request(projectsQuery)
+	]);
 	return {
 		projects,
+		authors,
 		message: 'Hello world!'
 	};
 }
