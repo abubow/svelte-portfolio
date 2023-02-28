@@ -12,10 +12,10 @@
 	<div>
 		<div class="grid grid-flow-col gap-4">
 			<a href="https://www.youtube.com/@abuzarsherazi1054" target="_blank" rel="noreferrer">
-                <YouTubeIcon />
+				<YouTubeIcon />
 			</a>
 			<a href="https://twitter.com/SyedMoh25065076" target="_blank" rel="noreferrer">
-                <TwitterIcon />
+				<TwitterIcon />
 			</a>
 		</div>
 	</div>
