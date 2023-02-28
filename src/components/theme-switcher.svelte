@@ -1,6 +1,18 @@
+<script>
+	let theme;
+	function handleThemeChange(event) {
+		theme = event.target.value;
+		localStorage.setItem('theme', theme);
+		document.documentElement.setAttribute('data-theme', theme);
+		console.log('theme', theme);
+	}
+</script>
+
 <div>
 	<select
 		data-choose-theme
+		bind:value={theme}
+		on:change={handleThemeChange}
 		class="pr-9 bg-base-100 select-xs text-base-content select select-bordered select-primary"
 	>
 		<option disabled="disabled" selected="selected">Choose a theme</option>
@@ -34,4 +46,7 @@
 		<option value="winter">Winter</option>
 		<option value="wireframe">Wireframe</option>
 	</select>
+	<span>
+		Theme {theme ? theme : 'not set'}
+	</span>
 </div>

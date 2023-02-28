@@ -1,5 +1,6 @@
 <script>
 	import { marked } from 'marked';
+	/** @type {import('./$types').PageData} */
 	export let data;
 </script>
 
