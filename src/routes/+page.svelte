@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<title>My Portfolio projects</title>
+	<title>Abuzar Sherazi - Full Stack Developer</title>
 </svelte:head>
 <h1 class="font-bold text-center mb-20 text-5xl">Welcome to my Portfolio</h1>
 

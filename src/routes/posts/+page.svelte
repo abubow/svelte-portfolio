@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Portfolio | Blog</title>
+	<title>Blog Posts - Abuzar Sherazi</title>
 </svelte:head>
 
 <h1 class="text-4xl mb-10 font-extrabold">Blog posts</h1>

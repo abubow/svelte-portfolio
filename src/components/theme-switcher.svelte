@@ -46,7 +46,4 @@
 		<option value="winter">Winter</option>
 		<option value="wireframe">Wireframe</option>
 	</select>
-	<span>
-		Theme {theme ? theme : 'not set'}
-	</span>
 </div>
