@@ -11,10 +11,10 @@
 	</div>
 	<div>
 		<div class="grid grid-flow-col gap-4">
-			<a href="https://www.youtube.com/@abuzarsherazi1054" target="_blank" rel="noreferrer" name="YouTube">
+			<a href="https://www.youtube.com/@abuzarsherazi1054" target="_blank" rel="noreferrer" name="YouTube" aria-label="YouTube">
 				<YouTubeIcon />
 			</a>
-			<a href="https://twitter.com/SyedMoh25065076" target="_blank" rel="noreferrer" name="Twitter">
+			<a href="https://twitter.com/SyedMoh25065076" target="_blank" rel="noreferrer" name="Twitter" aria-label="Twitter">
 				<TwitterIcon />
 			</a>
 		</div>
