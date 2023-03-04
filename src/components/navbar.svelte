@@ -15,9 +15,9 @@
 			tabindex="0"
 			class="bg-neutral rounded-box shadow text-neutral-content p-2 w-52 menu dropdown-content "
 		>
-			<a class="btn btn-ghost btn-sm rounded-btn" href="/projects"> Portfolio </a>
-			<a class="btn btn-ghost btn-sm rounded-btn" href="/posts"> Blog </a>
-			<a class="btn btn-ghost btn-sm rounded-btn" href="/about"> About </a>
+			<a class="btn btn-ghost btn-sm rounded-btn" href="/projects" name="Projects"> Portfolio </a>
+			<a class="btn btn-ghost btn-sm rounded-btn" href="/posts" name="Blog"> Blog </a>
+			<a class="btn btn-ghost btn-sm rounded-btn" href="/about" name="About"> About </a>
 			<div class="py-4">
 				<ThemeSwitcher />
 			</div>
@@ -26,9 +26,9 @@
 
 	<div class="flex-none hidden px-2 mx-2 lg:flex">
 		<div class="flex items-stretch">
-			<a class="btn btn-ghost btn-sm rounded-btn" href="/projects"> Portfolio </a>
-			<a class="btn btn-ghost btn-sm rounded-btn" href="/posts">Blog</a>
-			<a class="btn btn-ghost btn-sm rounded-btn" href="/about">About</a>
+			<a class="btn btn-ghost btn-sm rounded-btn" href="/projects" name="Projects"> Portfolio </a>
+			<a class="btn btn-ghost btn-sm rounded-btn" href="/posts" name="Blog"> Blog </a>
+			<a class="btn btn-ghost btn-sm rounded-btn" href="/about" name="About"> About </a>
 			<div class="px-4">
 				<ThemeSwitcher />
 			</div>
