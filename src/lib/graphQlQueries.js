@@ -9,6 +9,8 @@ export const authorsQuery = gql`
 			slug
 			picture {
 				url
+				width
+				height
 			}
 		}
 	}
@@ -24,6 +26,8 @@ const PROJECT_FRAGMENT = gql`
 		sourceCode
 		image {
 			url
+			width
+			height
 		}
 	}
 `;
@@ -57,6 +61,8 @@ const POST_FRAGMENT = gql`
 		tags
 		coverImage {
 			url
+			width
+			height
 		}
 		authors {
 			name

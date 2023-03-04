@@ -6,7 +6,7 @@
 		name,
 		intro,
 		bio,
-		picture: { url }
+		picture: { url, width, height }
 	} = data.authors[0];
 </script>
 
@@ -22,7 +22,7 @@
 		<p class="text-xl mb-4">{intro}</p>
 	</div>
 
-	<img class="mask mask-squircle h-48" src={url} alt={name} />
+	<img {width} {height} class="mask mask-squircle" src={url} alt={name} style="width: 200px; height: 200px;" />
 </div>
 
 <article div class="prose prose-lg">
