@@ -86,6 +86,7 @@ export const GET = async () => {
     headers: {
       'Cache-Control': 'max-age=0, s-maxage=3600',
       'Content-Type': 'application/xml',
+      'Content-Length': body.length,
     },
   })
 }
