@@ -9,6 +9,5 @@ export async function load() {
 	return {
 		projects,
 		authors,
-		message: 'Hello world!'
 	};
 }

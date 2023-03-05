@@ -2,7 +2,7 @@
 	import ThemeSwitcher from './theme-switcher.svelte';
 </script>
 
-<div class="navbar mb-16 shadow-lg bg-neutral text-neutral-content sticky top-0 z-10">
+<navbar class="navbar mb-16 shadow-lg bg-neutral text-neutral-content sticky top-0 z-10 lg:px-96">
 	<div class="flex-1 px-2 mx-2">
 		<a class="text-lg font-bold" href="/">Portfolio and Blog</a>
 	</div>
@@ -34,4 +34,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</navbar>

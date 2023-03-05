@@ -13,7 +13,7 @@
 		data-choose-theme
 		bind:value={theme}
 		on:change={handleThemeChange}
-		class="pr-9 bg-base-100 select-xs text-base-content select select-bordered select-primary"
+		class="pr-9 select-sm text-base-content select select-bordered select-primary dropdown-content"
 	>
 		<option disabled="disabled" selected="selected">Choose a theme</option>
 		<option value="acid">Acid</option>

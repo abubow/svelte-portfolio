@@ -1,5 +1,6 @@
 <script>
-	import TwitterIcon from './icons/twitter-icon.svelte';
+	import GithubIcon from './icons/github-icon.svelte';
+import TwitterIcon from './icons/twitter-icon.svelte';
 	import YouTubeIcon from './icons/youtube-icon.svelte';
 </script>
 
@@ -16,6 +17,9 @@
 			</a>
 			<a href="https://twitter.com/SyedMoh25065076" target="_blank" rel="noreferrer" name="Twitter" aria-label="Twitter">
 				<TwitterIcon />
+			</a>
+			<a href="http://github.com/abubow/" target="_blank" rel="noreferrer" name="Github" aria-label="Github">
+				<GithubIcon />
 			</a>
 		</div>
 	</div>
