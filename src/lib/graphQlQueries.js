@@ -59,6 +59,7 @@ const POST_FRAGMENT = gql`
 		date
 		content
 		tags
+		metadescription
 		coverImage {
 			url
 			width
