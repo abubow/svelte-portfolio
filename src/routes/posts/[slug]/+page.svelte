@@ -3,12 +3,13 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 
-	const { title, date, tags, content, coverImage, metadescription } = data.post;
+	const { title, date, tags, content, coverImage, metaDescription, metaTags } = data.post;
 </script>
 
 <svelte:head>
 	<title>{title} - Abuzar Sherazi</title>
-	<meta name="description" content={metadescription} />
+	<meta name="description" content={metaDescription} />
+	<meta name="keywords" content={metaTags} />
 </svelte:head>
 
 <div class="sm:-mx-5 md:-mx-10 lg:-mx-20 my-5">
