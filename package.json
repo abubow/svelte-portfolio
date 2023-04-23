@@ -31,5 +31,9 @@
 		"theme-change": "^2.3.0",
 		"vite": "^4.0.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@emailjs/browser": "^3.11.0",
+		"emailjs": "^4.0.1"
+	}
 }
