@@ -32,11 +32,34 @@ const PROJECT_FRAGMENT = gql`
 	}
 `;
 
+const PROJECT_BASIC_FRAGMENT = gql`
+	fragment ProjectBasicDetails on Project {
+		name
+		slug
+		metaDescription
+		tags
+		image {
+			url
+			width
+			height
+		}
+	}
+`;
+
 export const projectsQuery = gql`
 	${PROJECT_FRAGMENT}
 	query GetProjects {
 		projects {
 			...ProjectDetails
+		}
+	}
+`;
+
+export const projectsBasicQuery = gql`
+	${PROJECT_BASIC_FRAGMENT}
+	query GetProjects {
+		projects {
+			...ProjectBasicDetails
 		}
 	}
 `;
@@ -72,11 +95,39 @@ const POST_FRAGMENT = gql`
 	}
 `;
 
+const POST_BASIC_FRAGMENT = gql`
+	fragment PostBasicDetails on Post {
+		title
+		slug
+		date
+		tags
+		metaDescription
+		coverImage {
+			url
+			width
+			height
+		}
+		authors {
+			name
+		}
+	}
+`;
+
+
 export const postsQuery = gql`
 	${POST_FRAGMENT}
 	query GetPosts {
 		posts {
 			...PostDetails
+		}
+	}
+`;
+
+export const postsBasicQuery = gql`
+	${POST_BASIC_FRAGMENT}
+	query GetPosts {
+		posts {
+			...PostBasicDetails
 		}
 	}
 `;
