@@ -47,7 +47,7 @@
 
 <!-- formatted -->
 
-<a href={`/projects/${slug}`} {name}>
+<a href={`/projects/${slug}`} {name} >
 	<div class="card bg-base-100 shadow-xl">
 		<figure>
 			<img
@@ -61,10 +61,10 @@
 		</figure>
 		<div class="card-body">
 			<h2 class="card-title">
-				{name}
+				{name.slice(0, 30)}...
 				<div class="badge badge-secondary">NEW</div>
 			</h2>
-			<p>{description.slice(0, 60)}...</p>
+			<p>{description.slice(0, 150)}...</p>
 			<div class="card-actions justify-end">
 				{#each tags as tag}
 					<div class="badge badge-outline">{tag}</div>

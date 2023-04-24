@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	let theme;
 	function handleThemeChange(event) {
 		theme = event.target.value;
@@ -6,6 +7,13 @@
 		document.documentElement.setAttribute('data-theme', theme);
 		console.log('theme', theme);
 	}
+
+	onMount(() => {
+		theme = localStorage.getItem('theme');
+		if (theme) {
+			document.documentElement.setAttribute('data-theme', theme);
+		}
+	});
 </script>
 
 <div>

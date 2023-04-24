@@ -1,15 +1,13 @@
 import { client } from '$lib/graphQl';
-import { authorsQuery, projectsQuery, postsQuery } from '$lib/graphQlQueries';
+import { projectsBasicQuery, postsBasicQuery } from '$lib/graphQlQueries';
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {
-	const [authors, projects, posts] = await Promise.all([
-		client.request(authorsQuery),
-		client.request(projectsQuery),
-		client.request(postsQuery)
+	const [projects, posts] = await Promise.all([
+		client.request(projectsBasicQuery),
+		client.request(postsBasicQuery)
 	]);
 	return {
 		projects,
-		authors,
 		posts
 	};
 }
