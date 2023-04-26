@@ -1,5 +1,5 @@
 <script>
-	import { marked } from 'marked';
+	import RightArrow from '../../components/icons/right-arrow.svelte';
 	/** @type {import('./$types').PageData} */
 	export let data;
 </script>
@@ -31,9 +31,9 @@
 					<span class="badge badge-primary px-4 py-3 rounded-2xl">{tag}</span>
 				{/each}
 			</div>
-			<div class="justify-center card-actions">
+			<div class="justify-center card-actions my-4">
 				<a href={`/posts/${slug}`} class="btn btn-outline btn-primary">
-					Read &rArr;
+					Read <RightArrow class="w-5 h-5 p-8" />
 				</a>
 			</div>
 		</div>

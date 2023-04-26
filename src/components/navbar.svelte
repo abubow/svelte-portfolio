@@ -15,13 +15,11 @@
 			tabindex="0"
 			class="bg-neutral rounded-box shadow text-neutral-content p-2 w-52 menu dropdown-content "
 		>
+				<ThemeSwitcher />
 			<a class="btn btn-ghost btn-sm rounded-btn" href="/projects" name="Projects"> Portfolio </a>
 			<a class="btn btn-ghost btn-sm rounded-btn" href="/posts" name="Blog"> Blog </a>
 			<a class="btn btn-ghost btn-sm rounded-btn" href="/about" name="About"> About </a>
 			<a class="btn btn-ghost btn-sm rounded-btn" href="/contact" name="Contact"> Contact </a>
-			<div class="py-4">
-				<ThemeSwitcher />
-			</div>
 		</ul>
 	</div>
 

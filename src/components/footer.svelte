@@ -5,7 +5,7 @@
 </script>
 
 <button
-	class="btn btn-ghost btn-sm rounded-btn fixed bottom-4 right-4 z-10 hidden lg:block h-16 w-16"
+	class="btn btn-ghost btn-sm rounded-full p-2 fixed bottom-4 right-4 z-10 hidden lg:block h-10 w-10 border-2 border-primary-content hover:text-primary border-opacity-50 hover:border-opacity-0"
 	on:click={() => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}}

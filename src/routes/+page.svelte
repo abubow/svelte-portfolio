@@ -53,7 +53,13 @@
 	<h1 class="font-bold text-center mb-20 text-5xl">Projects</h1>
 	<div class="grid gap-12 md:grid-cols-4 md:px-10 lg:grid-cols-3 lg:-mx-52 lg:px-10">
 		{#each data.projects.projects as { name, slug, metaDescription, image, tags }}
-			<ProjectCard {name} description={metaDescription} image={image[0]} {slug} {tags} />
+			<ProjectCard
+				{name}
+				description={metaDescription}
+				image={image[0]}
+				slug={'projects/' + slug}
+				{tags}
+			/>
 		{/each}
 	</div>
 	<a href="/projects" class="btn btn-outline btn-primary px-8 py-3 mt-12 rounded-2xl"
@@ -65,7 +71,13 @@
 	<h1 class="font-bold text-center mb-20 text-5xl">Blog Posts</h1>
 	<div class="grid gap-12 md:grid-cols-4 md:px-10 lg:grid-cols-3 lg:-mx-52">
 		{#each data.posts.posts as { title, slug, metaDescription, coverImage, tags }}
-			<ProjectCard name={title} description={metaDescription} image={coverImage} {slug} {tags} />
+			<ProjectCard
+				name={title}
+				description={metaDescription}
+				image={coverImage}
+				slug={'posts/' + slug}
+				{tags}
+			/>
 		{/each}
 	</div>
 	<a href="/posts" class="btn btn-outline btn-primary px-8 py-3 mt-12 rounded-2xl">View All Posts</a

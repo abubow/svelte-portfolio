@@ -14,6 +14,37 @@
 			document.documentElement.setAttribute('data-theme', theme);
 		}
 	});
+	let themes = [
+		'Acid',
+		'Aqua',
+		'Autumn',
+		'Black',
+		'Bumblebee',
+		'Business',
+		'CMYK',
+		'Coffee',
+		'Corporate',
+		'Cupcake',
+		'Cyberpunk',
+		'Dark',
+		'Dracula',
+		'Emerald',
+		'Fantasy',
+		'Forest',
+		'Garden',
+		'Halloween',
+		'Lemonade',
+		'Light',
+		'Lofi',
+		'Luxury',
+		'Night',
+		'Pastel',
+		'Retro',
+		'Synthwave',
+		'Valentine',
+		'Winter',
+		'Wireframe'
+	];
 </script>
 
 <div>
@@ -21,37 +52,11 @@
 		data-choose-theme
 		bind:value={theme}
 		on:change={handleThemeChange}
-		class="pr-9 select-sm text-base-content select select-bordered select-primary dropdown-content"
+		class="select-sm text-base-content select select-bordered select-secondary dropdown-content w-full"
 	>
 		<option disabled="disabled" selected="selected">Choose a theme</option>
-		<option value="acid">Acid</option>
-		<option value="aqua">Aqua</option>
-		<option value="autumn">Autumn</option>
-		<option value="black">Black</option>
-		<option value="bumblebee">Bumblebee</option>
-		<option value="business">Business</option>
-		<option value="cmyk">CMYK</option>
-		<option value="coffee">Coffee</option>
-		<option value="corporate">Corporate</option>
-		<option value="cupcake">Cupcake</option>
-		<option value="cyberpunk">Cyberpunk</option>
-		<option value="dark">Dark</option>
-		<option value="dracula">Dracula</option>
-		<option value="emerald">Emerald</option>
-		<option value="fantasy">Fantasy</option>
-		<option value="forest">Forest</option>
-		<option value="garden">Garden</option>
-		<option value="halloween">Halloween</option>
-		<option value="lemonade">Lemonade</option>
-		<option value="light">Light</option>
-		<option value="lofi">Lofi</option>
-		<option value="luxury">Luxury</option>
-		<option value="night">Night</option>
-		<option value="pastel">Pastel</option>
-		<option value="retro">Retro</option>
-		<option value="synthwave">Synthwave</option>
-		<option value="valentine">Valentine</option>
-		<option value="winter">Winter</option>
-		<option value="wireframe">Wireframe</option>
+		{#each themes as theme}
+			<option value={theme.toLowerCase()}>{theme}</option>
+		{/each}
 	</select>
 </div>
