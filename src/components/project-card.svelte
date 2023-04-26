@@ -47,7 +47,7 @@
 
 <!-- formatted -->
 
-<a href={`/projects/${slug}`} {name} >
+<a href={`/${slug}`} {name} >
 	<div class="card bg-base-100 shadow-xl">
 		<figure>
 			<img
