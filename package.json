@@ -34,6 +34,7 @@
 	"type": "module",
 	"dependencies": {
 		"@emailjs/browser": "^3.11.0",
+		"@vercel/analytics": "^1.0.0",
 		"emailjs": "^4.0.1"
 	}
 }
