@@ -9,6 +9,8 @@
 	on:click={() => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}}
+	aria-label="Scroll to top"
+	aria-labelledby="scroll-to-top"
 >
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 		<path
