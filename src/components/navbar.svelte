@@ -1,5 +1,12 @@
 <script>
 	import ThemeSwitcher from './theme-switcher.svelte';
+	import BurgerMenu from './icons/burgerMenu.svelte';
+
+	let open = false;
+
+	function toggle() {
+		open = !open;
+	}
 </script>
 
 <navbar class="navbar mb-16 shadow-lg bg-neutral text-neutral-content sticky top-0 z-10 lg:px-96">
@@ -9,7 +16,9 @@
 
 	<div class="dropdown dropdown-left lg:hidden">
 		<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-		<div tabindex="0" class="m-1 btn">Links</div>
+		<div tabindex="0" class="m-1 btn">
+			<BurgerMenu playOpen={open} playClose={!open} on:click={toggle} />
+		</div>
 		<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 		<ul
 			tabindex="0"

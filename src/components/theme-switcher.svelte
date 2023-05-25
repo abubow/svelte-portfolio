@@ -52,7 +52,7 @@
 		data-choose-theme
 		bind:value={theme}
 		on:change={handleThemeChange}
-		class="select-sm text-base-content select select-bordered select-secondary dropdown-content w-full"
+		class="select-sm text-base-content select select-bordered select-secondary w-full"
 	>
 		<option disabled="disabled" selected="selected">Choose a theme</option>
 		{#each themes as theme}
