@@ -47,29 +47,50 @@
 
 <!-- formatted -->
 
-<a href={`/${slug}`} {name} >
-	<div class="card bg-base-100 shadow-xl">
-		<figure>
-			<img
-				src={image.url}
-				alt={name}
-				class="object-cover h-full"
-				height={image.height}
-				width={image.width}
-				style="max-height: 300px;"
-			/>
-		</figure>
-		<div class="card-body">
-			<h2 class="card-title">
-				{name.slice(0, 30)}...
-				<div class="badge badge-secondary">NEW</div>
-			</h2>
-			<p>{description.slice(0, 150)}...</p>
-			<div class="card-actions justify-end">
-				{#each tags as tag}
-					<div class="badge badge-outline">{tag}</div>
+<a 
+	href={`/${slug}`} 
+	class="group block hover-card overflow-hidden rounded-xl bg-base-100"
+>
+	<div class="relative overflow-hidden">
+		<!-- Image with overlay gradient effect -->
+		<img
+			src={image.url}
+			alt={name}
+			class="object-cover w-full transition-transform duration-500 group-hover:scale-105"
+			height={image.height}
+			width={image.width}
+			style="height: 200px;"
+		/>
+		
+		<!-- Tags overlay at top -->
+		{#if tags.length > 0}
+			<div class="absolute top-0 right-0 p-3 flex flex-wrap justify-end gap-1 max-w-[70%]">
+				{#each tags.slice(0, 3) as tag}
+					<span class="badge badge-sm badge-primary badge-outline bg-base-100/70 backdrop-blur-sm">
+						{tag}
+					</span>
 				{/each}
+				{#if tags.length > 3}
+					<span class="badge badge-sm badge-primary">+{tags.length - 3}</span>
+				{/if}
 			</div>
+		{/if}
+	</div>
+	
+	<div class="p-5">
+		<h2 class="card-title text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+			{name.length > 30 ? `${name.slice(0, 30)}...` : name}
+		</h2>
+		
+		<p class="text-sm opacity-90 line-clamp-3 mb-3">
+			{description.length > 150 ? `${description.slice(0, 150)}...` : description}
+		</p>
+		
+		<div class="flex justify-between items-center mt-2">
+			<span class="text-xs text-primary font-medium">View project →</span>
+			
+			<!-- New badge if needed -->
+			<!-- <span class="badge badge-sm badge-secondary">New</span> -->
 		</div>
 	</div>
 </a>

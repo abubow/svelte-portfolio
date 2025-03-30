@@ -30,7 +30,14 @@
 		<p class="text-xl mb-4">{intro}</p>
 	</div>
 
-	<img {width} {height} class="mask mask-squircle" src={url} alt={name} style="width: 200px; height: 200px;" />
+	<img
+		{width}
+		{height}
+		class="mask mask-squircle"
+		src={url}
+		alt={name}
+		style="width: 200px; height: 200px;"
+	/>
 </div>
 
 <article div class="prose prose-lg">
