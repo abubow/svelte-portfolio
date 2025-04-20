@@ -165,7 +165,7 @@
 <svelte:window on:mousemove={handleMouseMove} />
 
 {#if browser}
-	<div class="custom-cursor" style="opacity: 0;" />
+	<div class="custom-cursor" style="opacity: 0;"></div>
 {/if}
 
 <Navbar />

@@ -225,16 +225,16 @@
 
 	<!-- Right hero section with decorative elements -->
 	<div class="w-full md:w-1/2 relative min-h-[50vh] md:min-h-screen flex items-center justify-center ">
-		<div class="absolute inset-0 bg-base-300/30 z-0" />
+		<div class="absolute inset-0 bg-base-300/30 z-0"></div>
 		<div
 			class="parallax-layer absolute top-[10%] left-[15%] w-40 h-40 rounded-full bg-primary/20 backdrop-blur-md"
-		/>
+		></div>
 		<div
 			class="parallax-layer absolute bottom-[20%] right-[10%] w-60 h-60 rounded-full bg-secondary/20 backdrop-blur-md"
-		/>
+		></div>
 		<div
 			class="parallax-layer absolute top-[40%] right-[20%] w-20 h-20 rounded-full bg-accent/20 backdrop-blur-md"
-		/>
+		></div>
 		<div class="image-reveal absolute inset-0 z-0 flex items-center justify-center ">
 			<img
 				src="https://media.graphassets.com/EAg3lhPPQNWIUHVOvEBE"
@@ -505,12 +505,11 @@
 <section class="py-24 bg-base-200 relative overflow-hidden">
 	<div
 		class="parallax-layer absolute top-[10%] left-[5%] w-60 h-60 rounded-full bg-primary/10 backdrop-blur-md"
-	/>
+	></div>
 	<div
 		class="parallax-layer absolute bottom-[10%] right-[5%] w-40 h-40 rounded-full bg-secondary/10 backdrop-blur-md"
-	/>
-
-	<div class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+	></div>
+	<div class="w-full max-w-3xl mx-auto text-center relative z-10">
 		<div class="text-center stagger-children">
 			<span class="text-sm uppercase tracking-widest text-primary font-bold mb-2 block">
 				Let's Work Together

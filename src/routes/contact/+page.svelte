@@ -92,9 +92,10 @@
 		<textarea
 			id="message"
 			name="message"
-			placeholder="Your message.."
-			class="textarea textarea-bordered w-full max-w-xl"
-		/>
+			class="textarea textarea-bordered h-32 w-full"
+			placeholder="Your message"
+			required
+		></textarea>
 	</div>
 
 	<input class="btn btn-primary max-w-xl" type="submit" value="Submit" />
