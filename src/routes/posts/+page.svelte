@@ -1,6 +1,7 @@
 <script>
 	import { format } from 'date-fns';
 	import { browser } from '$app/environment';
+	import ArticleCard from '../../components/article-card.svelte';
 	
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -144,59 +145,11 @@
 	</div>
 	
 	<!-- Blog Posts -->
-	<div class="space-y-12">
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 		{#each filteredPosts as post}
-			<article class="fade-in bg-base-100 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow hover-card">
-				<div class="md:flex">
-					<!-- Image (left side on desktop) -->
-					<div class="md:w-1/3">
-						<a href={`/posts/${post.slug}`} class="block h-full">
-							<img 
-								src={post.coverImage.url} 
-								alt={post.title}
-								class="w-full h-64 md:h-full object-cover"
-							/>
-						</a>
-					</div>
-					
-					<!-- Content (right side on desktop) -->
-					<div class="md:w-2/3 p-6 md:p-8 flex flex-col">
-						<div class="mb-2 flex flex-wrap gap-2">
-							{#each post.tags.slice(0, 3) as tag}
-								<span class="badge badge-sm badge-primary">{tag}</span>
-							{/each}
-							{#if post.tags.length > 3}
-								<span class="badge badge-sm">+{post.tags.length - 3}</span>
-							{/if}
-						</div>
-						
-						<h2 class="text-2xl md:text-3xl font-bold mb-3 group">
-							<a href={`/posts/${post.slug}`} class="hover:text-primary transition-colors">
-								{post.title}
-							</a>
-						</h2>
-						
-						{#if post.date}
-							<time class="text-sm opacity-70 mb-4 block">
-								{formatDate(post.date)}
-							</time>
-						{/if}
-						
-						<p class="text-base opacity-80 mb-6 line-clamp-3">
-							{post.metaDescription}
-						</p>
-						
-						<div class="mt-auto">
-							<a href={`/posts/${post.slug}`} class="btn btn-sm btn-primary">
-								Read Article
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-								</svg>
-							</a>
-						</div>
-					</div>
-				</div>
-			</article>
+			<div class="fade-in">
+				<ArticleCard {post} />
+			</div>
 		{/each}
 	</div>
 	

@@ -135,15 +135,9 @@
 	
 	<!-- Project Grid -->
 	<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-		{#each filteredProjects as { name, slug, metaDescription, image, tags }}
+		{#each filteredProjects as project}
 			<div class="fade-in">
-				<ProjectCard
-					{name}
-					description={metaDescription}
-					image={image[0]}
-					slug={'projects/' + slug}
-					{tags}
-				/>
+				<ProjectCard {project} />
 			</div>
 		{/each}
 	</div>

@@ -32,7 +32,7 @@
 
 <nav 
 	bind:this={navElement}
-	class="fixed top-0 w-full z-10 transition-all duration-300 {scrolled ? 'bg-base-300/80 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'}"
+	class="fixed top-0 w-full z-50 transition-all duration-300 {scrolled ? 'bg-base-300/80 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-4'}"
 >
 	<div class="container mx-auto px-4 lg:px-8 flex justify-between items-center">
 		<!-- Logo -->

@@ -35,6 +35,7 @@
 	"type": "module",
 	"dependencies": {
 		"@emailjs/browser": "^3.11.0",
+		"@stackoverflow/stacks-icons": "^6.2.0",
 		"@vercel/analytics": "^1.0.0",
 		"date-fns": "^4.1.0",
 		"emailjs": "^4.0.1"

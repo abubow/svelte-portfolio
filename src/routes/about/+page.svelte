@@ -1,5 +1,6 @@
 <script>
 	import { marked } from 'marked';
+	import Skills from '../../components/skills.svelte';
 	/** @type {import('./$types').PageData} */
 	export let data;
 	const {
@@ -24,7 +25,7 @@
 
 <h1 class="font-bold text-center mb-20 text-5xl">About Me</h1>
 
-<div class="flex mb-40 items-end">
+<div class="flex mb-20 items-end">
 	<div class="mr-6">
 		<h2 class="text-3xl mb-4 font-bold tracking-wider">{name}</h2>
 		<p class="text-xl mb-4">{intro}</p>
@@ -40,6 +41,11 @@
 	/>
 </div>
 
-<article div class="prose prose-lg">
+<!-- Skills section -->
+<div class="mb-20">
+	<Skills />
+</div>
+
+<article class="prose prose-lg mb-20">
 	{@html marked(bio)}
 </article>
