@@ -12,23 +12,24 @@
 	let parallaxLayers = [];
 	let revealElements = [];
 	let staggerElements = [];
+	let parallaxContainerElement;
 
 	// Parallax effect for decorative elements
 	function handleMouseMove(e) {
-		if (!browser) return;
+		if (!browser || !parallaxContainerElement || !parallaxLayers.length) return;
 
-		const mouseX = e.clientX;
-		const mouseY = e.clientY;
+		const rect = parallaxContainerElement.getBoundingClientRect();
+		const mouseX = e.clientX - rect.left;
+		const mouseY = e.clientY - rect.top;
 
-		// Parallax effect
-		if (parallaxLayers.length) {
-			parallaxLayers.forEach((layer, index) => {
-				const depth = (index + 1) * 0.03;
-				const moveX = (mouseX - window.innerWidth / 2) * depth;
-				const moveY = (mouseY - window.innerHeight / 2) * depth;
-				layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
-			});
-		}
+		parallaxLayers.forEach((layer, index) => {
+			if (!(layer instanceof HTMLElement)) return;
+
+			const depth = (index + 1) * 0.05;
+			const moveX = (mouseX - rect.width / 2) * depth;
+			const moveY = (mouseY - rect.height / 2) * depth;
+			layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
+		});
 	}
 
 	function checkVisibility() {
@@ -134,8 +135,14 @@
 		mounted = true;
 
 		if (browser) {
-			// Initialize parallax layers
-			parallaxLayers = document.querySelectorAll('.parallax-layer');
+			setTimeout(() => {
+				if (parallaxContainerElement) {
+					parallaxLayers = Array.from(parallaxContainerElement.querySelectorAll('.parallax-layer'));
+					if (parallaxLayers.length > 0) {
+						parallaxContainerElement.addEventListener('mousemove', handleMouseMove);
+					}
+				}
+			}, 0);
 
 			// Initialize reveal animations
 			revealElements = document.querySelectorAll('.reveal-text, .image-reveal, .fade-in');
@@ -168,6 +175,9 @@
 			// Return cleanup function
 			return () => {
 				window.removeEventListener('scroll', checkVisibility);
+				if (parallaxContainerElement && parallaxLayers.length > 0) {
+					parallaxContainerElement.removeEventListener('mousemove', handleMouseMove);
+				}
 			};
 		}
 	});
@@ -185,9 +195,10 @@
 	/>
 </svelte:head>
 
-<svelte:window on:mousemove={handleMouseMove} />
-
-<section class="parallax-container min-h-screen flex flex-col md:flex-row">
+<section
+	bind:this={parallaxContainerElement}
+	class="parallax-container min-h-screen flex flex-col md:flex-row stagger-children relative overflow-hidden"
+>
 	<!-- Left hero section -->
 	<div class="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-12 z-10">
 		<div class="stagger-children">
@@ -227,13 +238,13 @@
 	<div class="w-full md:w-1/2 relative min-h-[50vh] md:min-h-screen flex items-center justify-center ">
 		<div class="absolute inset-0 bg-base-300/30 z-0"></div>
 		<div
-			class="parallax-layer absolute top-[10%] left-[15%] w-40 h-40 rounded-full bg-primary/20 backdrop-blur-md"
+			class="parallax-layer absolute top-[10%] left-[15%] w-40 h-40 rounded-full bg-primary/20 backdrop-blur-md transition-transform duration-300 ease-out"
 		></div>
 		<div
-			class="parallax-layer absolute bottom-[20%] right-[10%] w-60 h-60 rounded-full bg-secondary/20 backdrop-blur-md"
+			class="parallax-layer absolute bottom-[20%] right-[10%] w-60 h-60 rounded-full bg-secondary/20 backdrop-blur-md transition-transform duration-300 ease-out"
 		></div>
 		<div
-			class="parallax-layer absolute top-[40%] right-[20%] w-20 h-20 rounded-full bg-accent/20 backdrop-blur-md"
+			class="parallax-layer absolute top-[40%] right-[20%] w-20 h-20 rounded-full bg-accent/20 backdrop-blur-md transition-transform duration-300 ease-out"
 		></div>
 		<div class="image-reveal absolute inset-0 z-0 flex items-center justify-center ">
 			<img
