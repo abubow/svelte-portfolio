@@ -1,9 +1,39 @@
 <script>
 	import { marked } from 'marked';
+	import ArticleCard from '../../../components/article-card.svelte';
 	/** @type {import('./$types').PageData} */
 	export let data;
 
 	const { title, date, tags, content, coverImage, metaDescription, metaTags } = data.post;
+	
+	// Filter other posts to get related posts (by matching tags)
+	const otherPosts = data.otherPosts || [];
+	
+	// Find related posts based on matching tags
+	let relatedPosts = [];
+	if (tags && tags.length > 0 && otherPosts.length > 0) {
+		// Sort posts by number of matching tags, in descending order
+		relatedPosts = otherPosts
+			.filter(post => post.tags && post.tags.some(tag => tags.includes(tag)))
+			.sort((a, b) => {
+				const aMatches = a.tags.filter(tag => tags.includes(tag)).length;
+				const bMatches = b.tags.filter(tag => tags.includes(tag)).length;
+				return bMatches - aMatches;
+			})
+			.slice(0, 3);
+		
+		// If we don't have 3 related posts, fill with other posts
+		if (relatedPosts.length < 3) {
+			const remainingPosts = otherPosts
+				.filter(post => !relatedPosts.some(rp => rp.slug === post.slug))
+				.slice(0, 3 - relatedPosts.length);
+			
+			relatedPosts = [...relatedPosts, ...remainingPosts];
+		}
+	} else {
+		// If no tags or no other posts, just show most recent posts
+		relatedPosts = otherPosts.slice(0, 3);
+	}
 </script>
 
 <svelte:head>
@@ -51,3 +81,18 @@
 <article div class="prose prose-xl">
 	{@html marked(content)}
 </article>
+
+<!-- Related Posts Section -->
+{#if relatedPosts.length > 0}
+<section class="mt-16 pt-16 border-t border-base-300">
+	<h2 class="text-2xl font-bold mb-8">You might also like</h2>
+	
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+		{#each relatedPosts as post}
+			<div class="fade-in">
+				<ArticleCard {post} />
+			</div>
+		{/each}
+	</div>
+</section>
+{/if}

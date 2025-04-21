@@ -1,5 +1,5 @@
 import { client } from '$lib/graphQl';
-import { projectsBasicQuery }  from '$lib/graphQlQueries';
+import { projectsBasicQuery } from '$lib/graphQlQueries';
 
 /** @type {import('./$types').PageServerLoad} */
 export async function load() {

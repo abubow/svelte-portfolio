@@ -1,12 +1,7 @@
-import { client } from '$lib/graphQl'
-import { gql } from 'graphql-request'
+import { client } from '$lib/graphQl';
+import { gql } from 'graphql-request';
 
-const sitemap = (
-  posts,
-  projects,
-  pages,
-  siteUrl
-) => `<?xml version="1.0" encoding="UTF-8" ?>
+const sitemap = (posts, projects, pages, siteUrl) => `<?xml version="1.0" encoding="UTF-8" ?>
 <urlset
   xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:news="https://www.google.com/schemas/sitemap-news/0.9"
@@ -21,72 +16,70 @@ const sitemap = (
     <priority>0.7</priority>
   </url>
   ${pages
-    .map(
-      page => `
+		.map(
+			(page) => `
   <url>
     <loc>${siteUrl}/${page}</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   `
-    )
-    .join('')}
+		)
+		.join('')}
   ${posts
-    .map(
-      post => `
+		.map(
+			(post) => `
   <url>
     <loc>${siteUrl}/posts/${post.slug}</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   `
-    )
-    .join('')}
+		)
+		.join('')}
   ${projects
-    .map(
-      project => `
+		.map(
+			(project) => `
   <url>
     <loc>${siteUrl}/projects/${project.slug}</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   `
-    )
-    .join('')}
-</urlset>`
+		)
+		.join('')}
+</urlset>`;
 
 export const GET = async () => {
-  const query = gql`
-    query Posts {
-      projectMetadatas {
-        name
-        siteUrl
-        description
-      }
-      posts {
-        title
-        slug
-      }
-      projects {
-        name
-        slug
-      }
-    }
-  `
+	const query = gql`
+		query Posts {
+			projectMetadatas {
+				name
+				siteUrl
+				description
+			}
+			posts {
+				title
+				slug
+			}
+			projects {
+				name
+				slug
+			}
+		}
+	`;
 
-  const { projectMetadatas, posts, projects } = await client.request(
-    query
-  )
-  const { siteUrl } = projectMetadatas[0]
+	const { projectMetadatas, posts, projects } = await client.request(query);
+	const { siteUrl } = projectMetadatas[0];
 
-  const pages = [`projects`, `posts`, `about`]
-  const body = sitemap(posts, projects, pages, siteUrl)
+	const pages = [`projects`, `posts`, `about`];
+	const body = sitemap(posts, projects, pages, siteUrl);
 
-  return new Response(body, {
-    headers: {
-      'Cache-Control': 'max-age=0, s-maxage=3600',
-      'Content-Type': 'application/xml',
-      'Content-Length': body.length,
-    },
-  })
-}
+	return new Response(body, {
+		headers: {
+			'Cache-Control': 'max-age=0, s-maxage=3600',
+			'Content-Type': 'application/xml',
+			'Content-Length': body.length
+		}
+	});
+};

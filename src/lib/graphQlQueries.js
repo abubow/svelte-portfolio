@@ -113,7 +113,6 @@ const POST_BASIC_FRAGMENT = gql`
 	}
 `;
 
-
 export const postsQuery = gql`
 	${POST_FRAGMENT}
 	query GetPosts {
